@@ -8,7 +8,7 @@ public class Bar : MonoBehaviour
     public GameObject BG;
     public GameObject fill;
     public Clock timer;
-    public int decreaseInterval = 1;
+    public int decreaseInterval = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,7 @@ public class Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(timer.timeMin);
         if (timer.timeMin % decreaseInterval == 0)
         {
             decrementMeter();
