@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Bar : MonoBehaviour
 {
+    public PlayerStats player;
     public GameObject BG;
     public GameObject fill;
     public Clock timer;
-    public static int max = 100;
-    public int meter = max;
     public int decreaseInterval = 1;
 
     // Start is called before the first frame update
@@ -17,7 +16,7 @@ public class Bar : MonoBehaviour
         Debug.Log(BG.transform.position);
         BG.transform.localScale = new Vector3(1f, 1f, 1f);
         BG.transform.localPosition = new Vector3(0f, 0f, 0f);
-        fill.transform.localScale = new Vector3(1f, meter, 1f);
+        fill.transform.localScale = new Vector3(1f, player.getEnergy(), 1f);
     }
 
     // Update is called once per frame
@@ -31,10 +30,10 @@ public class Bar : MonoBehaviour
 
     private void decrementMeter()
     {
-        meter -= 1;
-        if (meter >= 0)
-            fill.transform.localScale = new Vector3(1f, meter, 1f);
-        else
-            meter = 0;
+        if (player.getEnergy() >= 1)
+        {
+            player.incEnergy(-1);
+            fill.transform.localScale = new Vector3(1f, player.getEnergy(), 1f);
+        }
     }
 }
