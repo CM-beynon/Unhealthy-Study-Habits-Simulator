@@ -1,0 +1,8 @@
+  
+*.class
+Unhealthy Study Habits Simulator/Library/
+Unhealthy Study Habits Simulator/Temp/
+*.sln
+Unhealthy Study Habits Simulator/.vs/
+Unhealthy Study Habits Simulator/obj/
+*.csproj
