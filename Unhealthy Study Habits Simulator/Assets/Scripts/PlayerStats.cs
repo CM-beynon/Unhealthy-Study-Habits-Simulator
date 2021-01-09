@@ -51,7 +51,7 @@ public class PlayerStats : MonoBehaviour
     public void incEnergy(int inc)
     {
         energy += inc;
-    } // end incTired
+    } // end incEnergy
 
     public void incHunger(int inc)
     {
