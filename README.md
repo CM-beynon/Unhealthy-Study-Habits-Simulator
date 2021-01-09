@@ -1,2 +1,2 @@
 # Unhealthy-Study-Habits-Simulator
-We do not condone this
+We do not condone this.
