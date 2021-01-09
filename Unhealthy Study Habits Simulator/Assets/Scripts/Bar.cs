@@ -9,6 +9,8 @@ public class Bar : MonoBehaviour
     public GameObject fill;
     public Clock timer;
     public int decreaseInterval = 10;
+    public int PlayerStatChoice;
+    private int prevMin = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -16,25 +18,54 @@ public class Bar : MonoBehaviour
         Debug.Log(BG.transform.position);
         BG.transform.localScale = new Vector3(1f, 1f, 1f);
         BG.transform.localPosition = new Vector3(0f, 0f, 0f);
-        fill.transform.localScale = new Vector3(1f, player.getEnergy(), 1f);
+        displayFill();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(timer.timeMin);
-        if (timer.timeMin % decreaseInterval == 0)
-        {
+        if (timer.timeMin % decreaseInterval == 0 && timer.timeMin != prevMin)
             decrementMeter();
-        }
+        prevMin = timer.timeMin;
     }
 
     private void decrementMeter()
     {
         if (player.getEnergy() >= 1)
         {
-            player.incEnergy(-1);
-            fill.transform.localScale = new Vector3(1f, player.getEnergy(), 1f);
+            switch (PlayerStatChoice)
+            {
+                case 1:
+                    player.incEnergy(-1);
+                    break;
+                case 2:
+                    player.incHunger(-1);
+                    break;
+                case 3:
+                    player.incBathroom(-1);
+                    break;
+            }
+            displayFill();
         }
+    }
+
+    private void displayFill()
+    {
+        int scale = -1;
+
+        switch (PlayerStatChoice)
+        {
+            case 1:
+                scale = player.getEnergy();
+                break;
+            case 2:
+                scale = player.getHunger();
+                break;
+            case 3:
+                scale = player.getBathroom();
+                break;
+        }
+
+        fill.transform.localScale = new Vector3(1f, scale, 1f);
     }
 }

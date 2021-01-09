@@ -7,14 +7,18 @@ public class PlayerStats : MonoBehaviour
     // meters/status bars
     private int preparedness;
     private int energy;
-    public static int maxEnergy = 100;
     private int hunger;
     private int bathroom;
+    public static int maxEnergy = 100;
+    public static int maxHunger = 100;
+    public static int maxBathroom = 100;
 
     // Start is called before the first frame update
     void Start()
     {
         energy = maxEnergy;
+        hunger = maxHunger;
+        bathroom = maxBathroom;
     } // end Start
 
     // Update is called once per frame
