@@ -37,7 +37,8 @@ public class EatButtonScript : AAction
         StartCoroutine(SoundEffect());
         base.startAction();
         Debug.Log("Eated");
-        base.incStat("hunger", 2);
+        base.incStat("hunger", 100);
+        base.incStat("energy", 20);
         pMove.setAction("food");
 
     }

@@ -40,7 +40,8 @@ public class CoffeeButtonScript : AAction
         StartCoroutine(SoundEffect());
         base.startAction();
         Debug.Log("Caffeinated");
-        base.incStat("energy", 2);
+        base.incStat("energy", 100);
+        base.incStat("bathroom", -5);
         pMove.setAction("coffee");
     }
 
