@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
             
-            if (right && count % 35 == 0)
+            if (right && count % 20 == 0)
             {
                 if (walk)
                 {
@@ -92,10 +92,10 @@ public class PlayerMovement : MonoBehaviour
                     opening = true;
                     closed = false;
                 }
-                else
+                /*else
                 {
                     goalReached = true;
-                }
+                }*/
                 action = false;
                 spriteRend.sprite = MCBack;
                 count = 0;
@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
                 spriteRend.enabled = false;
                 opening = false;
                 halfOpen = false;
-                goalReached = true;
+                //goalReached = true;
                 count = 0;
             }
             count ++;
@@ -147,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
         walk = true;
         right = true;
         actionGoal = goal;
+        count = 0;
     } // end setAction
 
     private void toChair()
@@ -183,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
                 endY = 37;
                 endPos = new Vector3((float)endX/72, (float)endY/72, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
-                if (count % 35 == 0)
+                if (count % 20 == 0)
                 {
                     if (walk)
                     {
