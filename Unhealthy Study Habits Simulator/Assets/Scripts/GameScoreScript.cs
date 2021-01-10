@@ -23,10 +23,24 @@ public static class GameScoreScript
     {
         get
         {
-            return TimeForSleep;
+            return timeForSleep;
         } set
         {
             timeForSleep = value;
+        }
+    }
+
+    private static bool procrastinatorMode = false;
+
+    public static bool ProcrastinatorMode
+    {
+        get
+        {
+            return procrastinatorMode;
+        }
+        set
+        {
+            procrastinatorMode = value;
         }
     }
 }

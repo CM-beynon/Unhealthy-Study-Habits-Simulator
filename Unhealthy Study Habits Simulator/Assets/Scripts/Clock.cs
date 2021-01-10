@@ -24,6 +24,10 @@ public class Clock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameScoreScript.ProcrastinatorMode)
+        {
+            startHour = 11;
+        }
         nextMin = Time.time + timePerMin;
         timeMin = 0;
         timeHour = startHour;
