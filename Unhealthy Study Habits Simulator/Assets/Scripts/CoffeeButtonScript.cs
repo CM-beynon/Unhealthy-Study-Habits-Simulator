@@ -19,8 +19,8 @@ public class CoffeeButtonScript : AAction
         btn.onClick.AddListener(TaskOnClick);
         base.setButton(btn);
         Debug.Log("Started Coffee Button Script");
-        Button cbtn = GameObject.Find("CoffeeButton").GetComponent<Button>();
-        cbtn.onClick.AddListener(TaskOnClick);
+        //Button cbtn = GameObject.Find("CoffeeButton").GetComponent<Button>();
+        //cbtn.onClick.AddListener(TaskOnClick);
         tooltip.gameObject.SetActive(false);
     }
 

@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource foodEffect;
     public AAction anyButton;
 
+    private StudyScoreScript studyBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         paused = false;
         string[] temp = { "coffee", "bathroom", "food" };
         targets = temp;
+        studyBar = GetComponent<StudyScoreScript>();
     } // end Start
 
     // Update is called once per frame
@@ -158,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
         right = true;
         actionGoal = goal;
         count = 0;
+        studyBar.move();
     } // end setAction
 
     private void toChair()
@@ -214,6 +218,7 @@ public class PlayerMovement : MonoBehaviour
                     spriteRend.sprite = MCSit;
                     count = 0;
                     anyButton.endAction();
+                    studyBar.move();
                 }
             }
             count++;

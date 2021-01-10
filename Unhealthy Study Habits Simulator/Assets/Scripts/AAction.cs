@@ -56,7 +56,7 @@ public abstract class AAction : MonoBehaviour
     //start and end the action, deactivating and reactivating the other action buttons
     public void startAction()
     {
-        Debug.Log("Made it here");
+        //Debug.Log("Made it here");
         for (int i = 0; i < actionButtons.Length; i++)
         {
             actionButtons[i].getButton().interactable = false;
