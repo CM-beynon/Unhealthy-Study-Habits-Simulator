@@ -11,6 +11,10 @@ public class PauseButtonScript : MonoBehaviour
     public GameObject pauseText;
     public double textInterval = 0.5;
 
+    public AudioSource bgMusic;
+    public AudioSource pauseMusic;
+    public AudioSource pauseEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,15 +35,31 @@ public class PauseButtonScript : MonoBehaviour
 
     private void TaskOnClick()
     {
-        if (player.getPaused()) // unpause
-        {
-            Debug.Log("Unpause");
-            //textVisible = false;
-        } else // pause
+        player.togglePause();
+
+        if (player.getPaused()) // pause
         {
             Debug.Log("Pause");
             nextTextVisibleToggle = Time.time;
+            startPauseMusic();
+        } else // unpause
+        {
+            Debug.Log("Unpause");
+            endPauseMusic();
         }
-        player.togglePause();
+    }
+
+    void startPauseMusic()
+    {
+        bgMusic.Pause();
+        pauseEffect.Play();
+        pauseMusic.PlayDelayed(pauseEffect.clip.length + 0.35f);
+    }
+
+    void endPauseMusic()
+    {
+        pauseMusic.Stop();
+        pauseEffect.Play();
+        bgMusic.PlayDelayed(pauseEffect.clip.length);
     }
 }
