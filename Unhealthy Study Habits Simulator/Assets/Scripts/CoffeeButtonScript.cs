@@ -41,7 +41,7 @@ public class CoffeeButtonScript : AAction
         base.startAction();
         Debug.Log("Caffeinated");
         base.incStat("energy", 2);
-        pMove.setAction("Coffee");
+        pMove.setAction("coffee");
     }
 
     IEnumerator SoundEffect()
