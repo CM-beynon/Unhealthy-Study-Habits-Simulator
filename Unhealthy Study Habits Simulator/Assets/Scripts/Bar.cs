@@ -30,14 +30,7 @@ public class Bar : MonoBehaviour
         if (timer.timeMin % decreaseInterval == 0 && timer.timeMin != prevMin)
             decrementMeter();
         prevMin = timer.timeMin;
-
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            updateStatus();
-            status.gameObject.SetActive(true);
-        }
-        else
-            status.gameObject.SetActive(false);
+        updateStatus();
     }
 
     private void decrementMeter()
