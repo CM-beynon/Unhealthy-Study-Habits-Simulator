@@ -1874,7 +1874,7 @@ MonoBehaviour:
   MCRight: {fileID: 21300000, guid: 1d68e541ea1d3ad48a91bc0c8fc6c2d9, type: 3}
   MCLeft: {fileID: 21300000, guid: 2a0366121b7b88b42b5cddf50fa78739, type: 3}
   MCLeftWalk: {fileID: 21300000, guid: fe004f40d29c3ce459e4989fd78c37a7, type: 3}
-  MCRightWalk: {fileID: 0}
+  MCRightWalk: {fileID: 21300000, guid: abc20f5187a8aba4387925c1d146d2f9, type: 3}
   MCFront: {fileID: 21300000, guid: b7d84354c0634d9498a4c5315426ae77, type: 3}
   MCBack: {fileID: 21300000, guid: ed8f2b7ed39ded141824bb5c75f3c49f, type: 3}
   MCSit: {fileID: 21300000, guid: 3c1185bd459c63a4da67ba5711300af2, type: 3}
