@@ -45,9 +45,6 @@ public class Clock : MonoBehaviour
 
     void incrementClock()
     {
-        double timeSinceStart;
-
-
         if (timeMin + 1 == 60)
         {
             timeMin = 0;
