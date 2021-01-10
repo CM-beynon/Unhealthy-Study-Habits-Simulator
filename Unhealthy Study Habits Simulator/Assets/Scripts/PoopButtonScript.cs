@@ -38,7 +38,7 @@ public class PoopButtonScript : AAction
         base.startAction();
         Debug.Log("Pooped");
         base.incStat("bathroom", 2);
-        pMove.setAction("Door");
+        pMove.setAction("bathroom");
 
     }
 
