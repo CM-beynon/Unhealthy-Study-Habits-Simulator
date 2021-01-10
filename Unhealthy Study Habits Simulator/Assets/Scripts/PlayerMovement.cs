@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool open;
     private bool goalReached;
     private bool closed;
+    private bool paused;
 
     public SpriteRenderer door;
     public Sprite doorClosed;
@@ -54,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         opening = false;
         goalReached = false;
         closed = true;
+        paused = false;
     } // end Start
 
     // Update is called once per frame
@@ -212,9 +214,25 @@ public class PlayerMovement : MonoBehaviour
     public void pause()
     {
         if (action)
+        {
             action = false;
-        else
+            paused = true;
+        }
+        else if (paused)
+        {
             action = true;
+            paused = false;
+        }
+        if (goalReached)
+        {
+            goalReached = false;
+            paused = true;
+        }
+        else if (paused)
+        {
+            goalReached = true;
+            paused = false;
+        }
     } // end pause
 
     public void moveBack()
