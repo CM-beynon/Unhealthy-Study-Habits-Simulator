@@ -11,7 +11,6 @@ public abstract class AAction : MonoBehaviour
     Button btn;
     AAction[] actionButtons;
 
-
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -30,6 +29,14 @@ public abstract class AAction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && btn.interactable==false)
         {
             endAction();
+        }
+
+        if (player.getPaused() && btn.interactable == true)
+        {
+            btn.interactable = false;
+        } else if (!player.getPaused() && btn.interactable == false)
+        {
+            btn.interactable = true;
         }
     }
 
