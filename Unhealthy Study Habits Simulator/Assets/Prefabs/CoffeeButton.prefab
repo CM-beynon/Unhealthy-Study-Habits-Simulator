@@ -379,8 +379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e070a6d2d0e1bba4686c608a04810340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   tooltip: {fileID: 0}
+  pMove: {fileID: 0}
+  soundEffect: {fileID: 0}
 --- !u!1 &6058550196489166148
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,16 +684,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9034860651986555968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.25000003, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 6058550196473359299}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -124.8, y: 3.9}
+  m_AnchoredPosition: {x: -124.80002, y: 3.9}
   m_SizeDelta: {x: 787.01416, y: 166.49945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3210616193044977071
