@@ -7,22 +7,22 @@ public class PlayerMovement : MonoBehaviour
     // Fields
     private bool action;
     private Transform start;
-    private float startTime;
     private float speed;
     private int endX;
     private int endY;
-    private float length;
-    private float travelled;
-    private float fraction;
+    private Vector3 endPos;
+    private SpriteRenderer spriteRend;
+    private bool walk;
 
     // Start is called before the first frame update
     void Start()
     {
         action = false;
-        speed = 1.0F;
+        speed = 0.025F;
         start = transform;
         endX = 0;
         endY = 0;
+        spriteRend = GetComponent<SpriteRenderer>();
     } // end Start
 
     // Update is called once per frame
@@ -30,11 +30,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(action)
         {
-            travelled = (Time.time - startTime) * speed;
-            fraction = travelled/length;
-            Debug.Log(fraction + " " + travelled);
-            transform.position = Vector3.Lerp(start.position, new Vector3(endX,endY,transform.position.z), fraction);
-            if(transform.position.Equals(new Vector3(endX,endY,transform.position.z)))
+            transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
+            
+            if(start.position == endPos)
             {
                 action = false;
             }
@@ -54,9 +52,9 @@ public class PlayerMovement : MonoBehaviour
             endY = 281;
         }
 
-        length = Vector3.Distance(start.position, new Vector3(endX, endY, transform.position.z));
-        Debug.Log("LENGTH " + length);
-        startTime = Time.time;
+        endPos = new Vector3(endX/72, endY/72, transform.position.z);
+        //transform.position = endPos;
+        //Debug.Log(endX + " " + endY);
         action = true;
     } // end setAction
 }
