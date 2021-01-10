@@ -9,6 +9,7 @@ public class EatButtonScript : AAction
     string actionTag;
     public Text tooltip;
     public PlayerMovement pMove;
+    public AudioSource soundEffect;
 
     // Start is called before the first frame update
     public override void Start()
@@ -33,10 +34,17 @@ public class EatButtonScript : AAction
 
     private void TaskOnClick()
     {
+        StartCoroutine(SoundEffect());
         base.startAction();
         Debug.Log("Eated");
         base.incStat("hunger", 2);
         pMove.setAction("Door");
 
+    }
+
+    IEnumerator SoundEffect()
+    {
+        soundEffect.Play();
+        yield return new WaitForSeconds(soundEffect.clip.length);
     }
 }

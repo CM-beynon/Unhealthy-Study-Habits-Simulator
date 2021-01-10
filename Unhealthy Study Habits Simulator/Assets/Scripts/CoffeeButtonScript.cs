@@ -9,6 +9,7 @@ public class CoffeeButtonScript : AAction
     string actionTag;
     public Text tooltip;
     public PlayerMovement pMove;
+    public AudioSource soundEffect;
 
     // Start is called before the first frame update
     public override void Start()
@@ -36,9 +37,16 @@ public class CoffeeButtonScript : AAction
 
     private void TaskOnClick()
     {
+        StartCoroutine(SoundEffect());
         base.startAction();
         Debug.Log("Caffeinated");
         base.incStat("energy", 2);
         pMove.setAction("Coffee");
+    }
+
+    IEnumerator SoundEffect()
+    {
+        soundEffect.Play();
+        yield return new WaitForSeconds(soundEffect.clip.length);
     }
 }
