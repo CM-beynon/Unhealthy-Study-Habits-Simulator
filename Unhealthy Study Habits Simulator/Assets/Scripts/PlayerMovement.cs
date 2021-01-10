@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool open;
     private bool goalReached;
     private bool closed;
+    private bool paused;
 
     public SpriteRenderer door;
     public Sprite doorClosed;
@@ -54,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         opening = false;
         goalReached = false;
         closed = true;
+        paused = false;
     } // end Start
 
     // Update is called once per frame
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void moveToGoal()
     {
-        if (action)
+        if (action && !paused)
         {
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
             
@@ -103,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (opening)
+        if (opening && !paused)
         {
             if (halfOpen && count % 30 == 0 && !open)
             {
@@ -152,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void toChair()
     {
-        if (goalReached)
+        if (goalReached && !paused)
         {
             if (actionGoal == "Door" && count%30 == 0)
             {
@@ -211,10 +213,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void pause()
     {
-        if (action)
-            action = false;
+        if (paused)
+            paused = false;
         else
-            action = true;
+            paused = true;
     } // end pause
 
     public void moveBack()
