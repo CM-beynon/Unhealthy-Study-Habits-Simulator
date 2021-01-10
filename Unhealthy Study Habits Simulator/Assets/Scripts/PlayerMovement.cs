@@ -15,11 +15,13 @@ public class PlayerMovement : MonoBehaviour
     private bool walk;
     private bool left;
     private bool right;
-    private int count;
+    private float count;
     private string actionGoal;
     private bool opening;
     private bool halfOpen;
     private bool open;
+    private bool goalReached;
+    private bool closed;
 
     public SpriteRenderer door;
     public Sprite doorClosed;
@@ -38,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         action = false;
-        speed = 0.025F;
+        speed = 0.07F;
         start = transform;
         endX = 0;
         endY = 0;
@@ -50,29 +52,24 @@ public class PlayerMovement : MonoBehaviour
         opening = false;
         halfOpen = false;
         opening = false;
+        goalReached = false;
+        closed = true;
     } // end Start
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(action)
+        moveToGoal();
+        toChair();
+    } // end Update
+
+    private void moveToGoal()
+    {
+        if (action)
         {
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
-
-            if (left && count%50 == 0)
-            {
-                if (walk)
-                {
-                    spriteRend.sprite = MCLeft;
-                    walk = false;
-                }
-                else
-                {
-                    spriteRend.sprite = MCLeftWalk;
-                    walk = true;
-                }
-            }
-            else if (right && count%50 == 0)
+            
+            if (right && count % 35 == 0)
             {
                 if (walk)
                 {
@@ -90,39 +87,45 @@ public class PlayerMovement : MonoBehaviour
 
             if (start.position == endPos)
             {
-                if(actionGoal.Equals("Door"))
+                if (actionGoal.Equals("Door"))
                 {
                     opening = true;
+                    closed = false;
+                }
+                else
+                {
+                    goalReached = true;
                 }
                 action = false;
                 spriteRend.sprite = MCBack;
                 count = 0;
-                toChair();
+                start.position = endPos;
             }
         }
 
-        if(opening)
+        if (opening)
         {
-            if (halfOpen && count%40 == 0 && !open)
+            if (halfOpen && count % 30 == 0 && !open)
             {
                 door.sprite = doorOpen;
                 open = true;
             }
-            else if (count%40 == 0 && !open)
+            else if (count % 30 == 0 && !open)
             {
                 door.sprite = doorHalf;
                 halfOpen = true;
             }
-            else if (open && count%40 == 0)
+            else if (open && count % 30 == 0)
             {
                 spriteRend.enabled = false;
-                Debug.Log("WHAT");
                 opening = false;
                 halfOpen = false;
+                goalReached = true;
+                count = 0;
             }
-            count++;
+            count ++;
         }
-    } // end Update
+    } // end moveToGoal
 
     public void setAction(string goal)
     {
@@ -148,6 +151,61 @@ public class PlayerMovement : MonoBehaviour
 
     private void toChair()
     {
+        if (goalReached)
+        {
+            if (actionGoal == "Door" && count%30 == 0)
+            {
+                if(!spriteRend.enabled)
+                {
+                    spriteRend.enabled = true;
+                    spriteRend.sprite = MCFront;
+                }
+                else if(open)
+                {
+                    door.sprite = doorHalf;
+                    open = false;
+                    halfOpen = true;
+                }
+                else if(halfOpen)
+                {
+                    door.sprite = doorClosed;
+                    halfOpen = false;
+                    closed = true;
+                    spriteRend.sprite = MCLeft;
+                    walk = false;
+                    count = 0;
+                }
+            }
+            else if (closed)
+            {
+                // -326 37 chair
+                endX = -326;
+                endY = 37;
+                endPos = new Vector3((float)endX/72, (float)endY/72, transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
+                if (count % 35 == 0)
+                {
+                    if (walk)
+                    {
+                        spriteRend.sprite = MCLeft;
+                        walk = false;
+                    }
+                    else
+                    {
+                        spriteRend.sprite = MCLeftWalk;
+                        walk = true;
+                    }
+                }
+
+                if (start.position == endPos)
+                {
+                    goalReached = false;
+                    spriteRend.sprite = MCSit;
+                    count = 0;
+                }
+            }
+            count++;
+        }
     } // end toChair
 
     public void pause()
@@ -157,4 +215,9 @@ public class PlayerMovement : MonoBehaviour
         else
             action = true;
     } // end pause
+
+    public void moveBack()
+    {
+        goalReached = true;
+    } // end moveBack
 }
