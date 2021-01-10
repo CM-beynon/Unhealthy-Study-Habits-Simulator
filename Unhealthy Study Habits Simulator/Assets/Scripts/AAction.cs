@@ -18,7 +18,7 @@ public abstract class AAction : MonoBehaviour
         actionName = "unnamed";
         player = GameObject.Find("Player").GetComponent(typeof(PlayerStats)) as PlayerStats;
 
-        string[] temp = { "hunger", "energy", "bathroom" };
+        string[] temp = { "hunger", "energy", "bathroom","preparedness" };
         stats = temp;
         AAction[] tempActions = { GameObject.Find("PoopButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("CoffeeButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("EatButton").GetComponent(typeof(AAction)) as AAction };
         actionButtons = tempActions;
