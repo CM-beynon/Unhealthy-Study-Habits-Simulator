@@ -11,19 +11,21 @@ public class CoffeeButtonScript : AAction
     public override void Start()
     {
         base.Start();
-        Debug.Log("Started Coffee Button Script");
-        Button cbtn = GameObject.Find("CoffeeButton").GetComponent<Button>();
-        cbtn.onClick.AddListener(TaskOnClick);
+        Button btn = GameObject.Find("CoffeeButton").GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+        base.setButton(btn);
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
 
     }
 
     private void TaskOnClick()
     {
+        base.startAction();
         Debug.Log("Caffeinated");
         base.incStat("energy", 2);
     }
