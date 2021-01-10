@@ -37,8 +37,8 @@ public class PoopButtonScript : AAction
         StartCoroutine(SoundEffect());
         base.startAction();
         Debug.Log("Pooped");
-        base.incStat("bathroom", 2);
-        pMove.setAction("Door");
+        base.incStat("bathroom", 100);
+        pMove.setAction("bathroom");
 
     }
 

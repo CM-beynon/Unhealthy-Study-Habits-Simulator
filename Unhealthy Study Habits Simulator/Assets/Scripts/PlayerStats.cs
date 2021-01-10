@@ -65,16 +65,19 @@ public class PlayerStats : MonoBehaviour
     public void incEnergy(int inc)
     {
         energy += inc;
+        if (energy >= 100) energy = 100;
     } // end incEnergy
 
     public void incHunger(int inc)
     {
         hunger += inc;
+        if (hunger >= 100) hunger = 100;
     } // end incHunger
 
     public void incBathroom(int inc)
     {
         bathroom += inc;
+        if (bathroom >= 100) bathroom = 100;
     } // end incBathroom
 
     public void togglePause()

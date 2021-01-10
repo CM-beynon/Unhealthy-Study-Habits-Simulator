@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private bool goalReached;
     private bool closed;
     private bool paused;
+    private string[] targets;
 
     public SpriteRenderer door;
     public Sprite doorClosed;
@@ -36,6 +37,13 @@ public class PlayerMovement : MonoBehaviour
     public Sprite MCFront;
     public Sprite MCBack;
     public Sprite MCSit;
+    
+    public AudioSource coffeeEffect;
+    public AudioSource toiletEffect;
+    public AudioSource foodEffect;
+    public AAction anyButton;
+
+    private StudyScoreScript studyBar;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +64,9 @@ public class PlayerMovement : MonoBehaviour
         goalReached = false;
         closed = true;
         paused = false;
+        string[] temp = { "coffee", "bathroom", "food" };
+        targets = temp;
+        studyBar = GetComponent<StudyScoreScript>();
     } // end Start
 
     // Update is called once per frame
@@ -89,15 +100,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (start.position == endPos)
             {
-                if (actionGoal.Equals("Door"))
+                if (actionGoal.Equals("bathroom") || actionGoal.Equals("food"))
                 {
                     opening = true;
                     closed = false;
                 }
-                /*else
+                else
                 {
-                    goalReached = true;
-                }*/
+                    StartCoroutine(PlaySoundEffect(actionGoal));
+                }
                 action = false;
                 spriteRend.sprite = MCBack;
                 count = 0;
@@ -122,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 spriteRend.enabled = false;
                 opening = false;
                 halfOpen = false;
-                //goalReached = true;
+                StartCoroutine(PlaySoundEffect(actionGoal));
                 count = 0;
             }
             count ++;
@@ -131,12 +142,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void setAction(string goal)
     {
-        if (goal.Equals("Door"))
+        if (goal.Equals("bathroom") || goal.Equals("food"))
         {
             endX = 433;
             endY = 271;
         }
-        else if(goal.Equals("Coffee"))
+        else if(goal.Equals("coffee"))
         {
             endX = 241;
             endY = 281;
@@ -150,13 +161,14 @@ public class PlayerMovement : MonoBehaviour
         right = true;
         actionGoal = goal;
         count = 0;
+        studyBar.move();
     } // end setAction
 
     private void toChair()
     {
         if (goalReached && !paused)
         {
-            if (actionGoal == "Door" && count%30 == 0)
+            if ((actionGoal.Equals("bathroom") || actionGoal.Equals("food")) && count%30 == 0)
             {
                 if(!spriteRend.enabled)
                 {
@@ -205,6 +217,8 @@ public class PlayerMovement : MonoBehaviour
                     goalReached = false;
                     spriteRend.sprite = MCSit;
                     count = 0;
+                    anyButton.endAction();
+                    studyBar.move();
                 }
             }
             count++;
@@ -223,4 +237,26 @@ public class PlayerMovement : MonoBehaviour
     {
         goalReached = true;
     } // end moveBack
+
+
+    IEnumerator PlaySoundEffect(string target)
+    {
+        if(target.Equals(targets[0]))
+        {
+            coffeeEffect.Play();
+            yield return new WaitForSeconds(coffeeEffect.clip.length);
+        }
+        else if(target.Equals(targets[1]))
+        {
+            toiletEffect.Play();
+            yield return new WaitForSeconds(toiletEffect.clip.length);
+        }
+        else if (target.Equals(targets[2]))
+        {
+            foodEffect.Play();
+            yield return new WaitForSeconds(foodEffect.clip.length);
+        }
+
+        goalReached = true;
+    }
 }

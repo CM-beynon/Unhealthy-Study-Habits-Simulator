@@ -37,10 +37,6 @@ public abstract class AAction : MonoBehaviour
             btn.interactable = true;
             previouslyInterative = false;
         }
-        else if (Input.GetKeyDown("e") && btn.interactable == false)
-        {
-            endAction();
-        }
     }
 
     public void setName(string newName) { actionName = newName; }
@@ -60,14 +56,14 @@ public abstract class AAction : MonoBehaviour
     //start and end the action, deactivating and reactivating the other action buttons
     public void startAction()
     {
-        Debug.Log("Made it here");
+        //Debug.Log("Made it here");
         for (int i = 0; i < actionButtons.Length; i++)
         {
             actionButtons[i].getButton().interactable = false;
         }
     }
 
-    private void endAction()
+    public void endAction()
     {
         for (int i = 0; i < actionButtons.Length; i++)
         {
