@@ -9,6 +9,7 @@ public class PoopButtonScript : AAction
     string actionTag;
     public Text tooltip;
     public PlayerMovement pMove;
+    public AudioSource soundEffect;
 
     // Start is called before the first frame update
     public override void Start()
@@ -33,10 +34,17 @@ public class PoopButtonScript : AAction
 
     private void TaskOnClick()
     {
+        StartCoroutine(SoundEffect());
         base.startAction();
         Debug.Log("Pooped");
         base.incStat("bathroom", 2);
         pMove.setAction("Door");
 
+    }
+
+    IEnumerator SoundEffect()
+    {
+        soundEffect.Play();
+        yield return new WaitForSeconds(soundEffect.clip.length);
     }
 }
