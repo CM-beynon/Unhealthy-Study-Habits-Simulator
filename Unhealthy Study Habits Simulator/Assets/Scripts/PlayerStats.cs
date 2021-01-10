@@ -84,6 +84,8 @@ public class PlayerStats : MonoBehaviour
 
     public void GameEnd()
     {
+        // save preparedness score and go to end screen
+        GameScoreScript.GameScore = preparedness;
         SceneManager.LoadScene("EndScene");
     }
     
