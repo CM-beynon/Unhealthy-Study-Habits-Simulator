@@ -20,7 +20,7 @@ public abstract class AAction : MonoBehaviour
     //increase and decrease the relevant player stats
     protected void incStat(string stat, int amount) {
         if (stat.Equals(stats[0])) player.incHunger(amount);
-        else if (stat.Equals(stats[1])) player.incTired(amount);
+        else if (stat.Equals(stats[1])) player.incEnergy(amount);
         else if (stat.Equals(stats[2])) player.incBathroom(amount);
     }
 
