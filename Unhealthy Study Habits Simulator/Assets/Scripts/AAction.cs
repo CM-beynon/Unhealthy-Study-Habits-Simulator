@@ -9,8 +9,8 @@ public abstract class AAction : MonoBehaviour
     string actionName;
     PlayerStats player;
     Button btn;
+    bool previouslyInterative;
     AAction[] actionButtons;
-
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -27,7 +27,17 @@ public abstract class AAction : MonoBehaviour
     public virtual void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && btn.interactable==false)
+        if (player.getPaused() && btn.interactable == true)
+        {
+            btn.interactable = false;
+            previouslyInterative = true;
+        }
+        else if (!player.getPaused() && previouslyInterative && btn.interactable == false)
+        {
+            btn.interactable = true;
+            previouslyInterative = false;
+        }
+        else if (Input.GetKeyDown("e") && btn.interactable == false)
         {
             endAction();
         }
@@ -50,6 +60,7 @@ public abstract class AAction : MonoBehaviour
     //start and end the action, deactivating and reactivating the other action buttons
     public void startAction()
     {
+        Debug.Log("Made it here");
         for (int i = 0; i < actionButtons.Length; i++)
         {
             actionButtons[i].getButton().interactable = false;

@@ -8,6 +8,7 @@ public class CoffeeButtonScript : AAction
 {
     string actionTag;
     public Text tooltip;
+    public PlayerMovement pMove;
 
     // Start is called before the first frame update
     public override void Start()
@@ -38,5 +39,6 @@ public class CoffeeButtonScript : AAction
         base.startAction();
         Debug.Log("Caffeinated");
         base.incStat("energy", 2);
+        pMove.setAction("Coffee");
     }
 }

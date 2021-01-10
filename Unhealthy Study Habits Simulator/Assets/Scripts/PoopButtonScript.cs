@@ -8,6 +8,7 @@ public class PoopButtonScript : AAction
 {
     string actionTag;
     public Text tooltip;
+    public PlayerMovement pMove;
 
     // Start is called before the first frame update
     public override void Start()
@@ -35,6 +36,7 @@ public class PoopButtonScript : AAction
         base.startAction();
         Debug.Log("Pooped");
         base.incStat("bathroom", 2);
+        pMove.setAction("Door");
 
     }
 }
