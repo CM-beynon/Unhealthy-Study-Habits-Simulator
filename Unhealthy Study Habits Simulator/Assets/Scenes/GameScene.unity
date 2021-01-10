@@ -2464,6 +2464,11 @@ PrefabInstance:
       propertyPath: pauseEffect
       value: 
       objectReference: {fileID: 1779979668}
+    - target: {fileID: 916282072086910340, guid: 7648ac3a0b9dae4428c33d028ec2802b,
+        type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1667752382}
     - target: {fileID: 916282072086910341, guid: 7648ac3a0b9dae4428c33d028ec2802b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
