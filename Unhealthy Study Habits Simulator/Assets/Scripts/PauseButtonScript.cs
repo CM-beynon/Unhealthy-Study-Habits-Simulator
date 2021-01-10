@@ -41,22 +41,22 @@ public class PauseButtonScript : MonoBehaviour
         {
             Debug.Log("Pause");
             nextTextVisibleToggle = Time.time;
-            startPauseMusic();
+            StartPauseMusic();
         } else // unpause
         {
             Debug.Log("Unpause");
-            endPauseMusic();
+            EndPauseMusic();
         }
     }
 
-    void startPauseMusic()
+    void StartPauseMusic()
     {
         bgMusic.Pause();
         pauseEffect.Play();
         pauseMusic.PlayDelayed(pauseEffect.clip.length + 0.35f);
     }
 
-    void endPauseMusic()
+    void EndPauseMusic()
     {
         pauseMusic.Stop();
         pauseEffect.Play();
