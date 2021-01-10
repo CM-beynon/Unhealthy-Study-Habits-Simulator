@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseButton : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class PauseButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Button btn = GameObject.Find("PauseButton").GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TaskOnClick()
     {
-        
+        Debug.Log("Toggled Pause");
+        player.togglePause();
     }
 }

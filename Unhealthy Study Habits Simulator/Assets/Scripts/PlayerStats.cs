@@ -78,7 +78,7 @@ public class PlayerStats : MonoBehaviour
         bathroom += inc;
     } // end incBathroom
 
-    public void togglePaused()
+    public void togglePause()
     {
         paused = !paused;
     }
