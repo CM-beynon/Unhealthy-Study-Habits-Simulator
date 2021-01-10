@@ -10,10 +10,13 @@ public class PlayerStats : MonoBehaviour
     private int hunger;
     private int bathroom;
 
+    // stop updating if player is paused
+    private bool paused;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        paused = false;
     } // end Start
 
     // Update is called once per frame
@@ -42,6 +45,11 @@ public class PlayerStats : MonoBehaviour
         return bathroom;
     } // end getBathroom
 
+    public bool getPaused()
+    {
+        return paused;
+    } // end getPrep
+
     public void incPrep(int inc)
     {
         preparedness += inc;
@@ -63,4 +71,10 @@ public class PlayerStats : MonoBehaviour
     {
         bathroom += inc;
     } // end incBathroom
+
+    public void togglePaused()
+    {
+        paused = !paused;
+    }
+       
 } // end PlayerStats
