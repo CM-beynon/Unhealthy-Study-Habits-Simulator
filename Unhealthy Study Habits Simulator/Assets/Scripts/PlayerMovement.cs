@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     // Fields
     private bool action;
-    private string actionGoal;
     private Transform start;
     private float startTime;
     private float speed;
@@ -14,14 +13,13 @@ public class PlayerMovement : MonoBehaviour
     private int endY;
     private float length;
     private float travelled;
-    private float remaining;
+    private float fraction;
 
     // Start is called before the first frame update
     void Start()
     {
-        actionGoal = "None";
         action = false;
-        speed = 0.2F;
+        speed = 1.0F;
         start = transform;
         endX = 0;
         endY = 0;
@@ -33,9 +31,10 @@ public class PlayerMovement : MonoBehaviour
         if(action)
         {
             travelled = (Time.time - startTime) * speed;
-            remaining = travelled / length;
-            transform.position = Vector3.Lerp(start.position, new Vector3(endX,endY,0), remaining);
-            if(transform.position.Equals(new Vector3(endX,endY,0)))
+            fraction = travelled/length;
+            Debug.Log(fraction + " " + travelled);
+            transform.position = Vector3.Lerp(start.position, new Vector3(endX,endY,transform.position.z), fraction);
+            if(transform.position.Equals(new Vector3(endX,endY,transform.position.z)))
             {
                 action = false;
             }
@@ -46,16 +45,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (goal.Equals("Door"))
         {
-            endX = 366;
-            endY = 260;
+            endX = 433;
+            endY = 271;
         }
         else if(goal.Equals("Coffee"))
         {
-            endX = 196;
-            endY = 196;
+            endX = 241;
+            endY = 281;
         }
 
-        length = Vector3.Distance(start.position, new Vector3(endX, endY, 0));
+        length = Vector3.Distance(start.position, new Vector3(endX, endY, transform.position.z));
+        Debug.Log("LENGTH " + length);
         startTime = Time.time;
         action = true;
     } // end setAction
