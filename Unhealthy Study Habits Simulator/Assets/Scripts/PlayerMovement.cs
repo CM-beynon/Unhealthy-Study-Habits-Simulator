@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     private bool walk;
     private bool left;
     private bool right;
+    private int count;
+
+
     public Sprite MCRight;
     public Sprite MCLeft;
     public Sprite MCLeftWalk;
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         walk = false;
         left = false;
         right = false;
+        count = 0;
     } // end Start
 
     // Update is called once per frame
@@ -44,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
 
-            if (left)
+            if (left && count%50 == 0)
             {
                 if (walk)
                 {
@@ -57,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
                     walk = true;
                 }
             }
-            else if (right)
+            else if (right && count%50 == 0)
             {
                 if (walk)
                 {
@@ -71,10 +75,13 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if(start.position == endPos)
+            count++;
+
+            if (start.position == endPos)
             {
                 action = false;
                 spriteRend.sprite = MCBack;
+                count = 0;
             }
         }
     } // end Update
