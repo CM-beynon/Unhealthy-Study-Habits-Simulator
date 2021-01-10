@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -13,9 +14,13 @@ public class PlayerStats : MonoBehaviour
     public static int maxHunger = 100;
     public static int maxBathroom = 100;
 
+    // stop updating if player is paused
+    private bool paused;
+
     // Start is called before the first frame update
     void Start()
     {
+        paused = false;
         energy = maxEnergy;
         hunger = maxHunger;
         bathroom = maxBathroom;
@@ -47,6 +52,11 @@ public class PlayerStats : MonoBehaviour
         return bathroom;
     } // end getBathroom
 
+    public bool getPaused()
+    {
+        return paused;
+    } // end getPrep
+
     public void incPrep(int inc)
     {
         preparedness += inc;
@@ -66,4 +76,15 @@ public class PlayerStats : MonoBehaviour
     {
         bathroom += inc;
     } // end incBathroom
+
+    public void togglePause()
+    {
+        paused = !paused;
+    }
+
+    public void GameEnd()
+    {
+        SceneManager.LoadScene("EndScene");
+    }
+    
 } // end PlayerStats

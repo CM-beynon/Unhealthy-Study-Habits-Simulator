@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StudyScoreScript : MonoBehaviour {
+    public PlayerStats player;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,7 @@ public class StudyScoreScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        StudyBarScript.SetStudyBarValue(StudyBarScript.GetStudyBarValue() + 0.01f);
+        if (!player.getPaused())
+            StudyBarScript.SetStudyBarValue(StudyBarScript.GetStudyBarValue() + 0.01f);
     }
 }

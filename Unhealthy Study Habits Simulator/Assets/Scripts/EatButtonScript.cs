@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class EatButtonScript : AAction
 {
     string actionTag;
+    public Text tooltip;
+    public PlayerMovement pMove;
+    public AudioSource soundEffect;
 
     // Start is called before the first frame update
     public override void Start()
@@ -14,6 +18,7 @@ public class EatButtonScript : AAction
         Button btn = GameObject.Find("EatButton").GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         base.setButton(btn);
+        tooltip.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,13 +26,25 @@ public class EatButtonScript : AAction
     {
         base.Update();
 
+        if (EventSystem.current.IsPointerOverGameObject())
+            tooltip.gameObject.SetActive(true);
+        else
+            tooltip.gameObject.SetActive(false);
     }
 
     private void TaskOnClick()
     {
+        StartCoroutine(SoundEffect());
         base.startAction();
         Debug.Log("Eated");
         base.incStat("hunger", 2);
+        pMove.setAction("Door");
 
+    }
+
+    IEnumerator SoundEffect()
+    {
+        soundEffect.Play();
+        yield return new WaitForSeconds(soundEffect.clip.length);
     }
 }
