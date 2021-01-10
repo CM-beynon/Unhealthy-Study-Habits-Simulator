@@ -20,7 +20,7 @@ public abstract class AAction : MonoBehaviour
 
         string[] temp = { "hunger", "energy", "bathroom", "hygiene", "preparedness" };
         stats = temp;
-        AAction[] tempActions = { GameObject.Find("PoopButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("CoffeeButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("EatButton").GetComponent(typeof(AAction)) as AAction };
+        AAction[] tempActions = { GameObject.Find("PoopButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("CoffeeButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("EatButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("HygieneButton").GetComponent(typeof(AAction)) as AAction };
         actionButtons = tempActions;
     } // end Start
 
