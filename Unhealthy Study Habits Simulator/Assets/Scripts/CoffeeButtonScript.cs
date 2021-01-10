@@ -11,6 +11,7 @@ public class CoffeeButtonScript : AAction
     public override void Start()
     {
         base.Start();
+        Debug.Log("Started Coffee Button Script");
         Button cbtn = GameObject.Find("CoffeeButton").GetComponent<Button>();
         cbtn.onClick.AddListener(TaskOnClick);
     }

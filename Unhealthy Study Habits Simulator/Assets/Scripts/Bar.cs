@@ -31,22 +31,26 @@ public class Bar : MonoBehaviour
 
     private void decrementMeter()
     {
-        if (player.getEnergy() >= 1)
-        {
+
             switch (PlayerStatChoice)
             {
                 case 1:
-                    player.incEnergy(-1);
+                    if (player.getEnergy() >= 1){
+                    player.incEnergy(-1); }
                     break;
                 case 2:
+                    if (player.getHunger() >= 1){
                     player.incHunger(-1);
+                    }
                     break;
                 case 3:
+                    if (player.getBathroom() >= 1){
                     player.incBathroom(-1);
+                    }
                     break;
             }
             displayFill();
-        }
+        
     }
 
     private void displayFill()
