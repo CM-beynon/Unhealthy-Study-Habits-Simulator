@@ -16,6 +16,7 @@ public class Clock : MonoBehaviour
     public bool gameEnd;
 
     public Text textBox;
+    public PlayerStats player;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,8 @@ public class Clock : MonoBehaviour
         if (!gameEnd && Time.time >= nextMin)
         {
             nextMin += timePerMin;
-            incrementClock();
+            if (!player.getPaused())
+                incrementClock();
         }
     }
 
