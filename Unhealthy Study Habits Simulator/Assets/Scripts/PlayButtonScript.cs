@@ -15,7 +15,9 @@ public class PlayButtonScript : MonoBehaviour {
         //Debug.Log("Start");
         Button btn = GameObject.Find("PlayGameButton").GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
-        
+        // Reset Game Stats
+        GameScoreScript.TimeForSleep = 0;
+        GameScoreScript.GameScore = 0;
     }
 
     // Update is called once per frame

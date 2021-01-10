@@ -43,18 +43,27 @@ public class Bar : MonoBehaviour
                     if (player.getEnergy() >= 1)
                     {
                         player.incEnergy(-1);
+                    } else
+                    {
+                        player.GameEnd();
                     }
                     break;
                 case 2:
                     if (player.getHunger() >= 1)
                     {
                         player.incHunger(-1);
+                    } else
+                    {
+                        player.GameEnd();
                     }
                     break;
                 case 3:
                     if (player.getBathroom() >= 1)
                     {
                         player.incBathroom(-1);
+                    } else
+                    {
+                        player.GameEnd();
                     }
                     break;
             }
