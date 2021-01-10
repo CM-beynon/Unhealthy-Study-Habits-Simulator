@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
-    public const int startHour = 7; // 7PM
-    public const int examHour = 7; // 7AM
-    public const double timePerMin = 0.25;
+    public int startHour = 7; // 7PM
+    public int examHour = 7; // 7AM
+    public double timePerMin = 0.25;
 
     public double nextMin;
     public int timeMin;
@@ -58,24 +58,24 @@ public class Clock : MonoBehaviour
             GameEnd();
         }
 
-        textBox.text = formatTime();
+        textBox.text = formatTime(timeHour, timeMin, pm);
     }
 
-    string formatTime()
+    public string formatTime(int theHour, int theMin, bool isPM)
     {
         string timeString;
 
-        if (timeHour == 0)
+        if (theHour == 0)
         {
             timeString = "12:";
         } else
         {
-            timeString = timeHour.ToString("00") + ":";
+            timeString = theHour.ToString("00") + ":";
         }
 
-        timeString += timeMin.ToString("00");
+        timeString += theMin.ToString("00");
 
-        if (pm)
+        if (isPM)
         {
             timeString += "PM";
         } else
