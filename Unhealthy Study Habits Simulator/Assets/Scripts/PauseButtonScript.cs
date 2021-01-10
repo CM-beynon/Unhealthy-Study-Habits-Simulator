@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PauseButtonScript : MonoBehaviour
 {
+    public PlayerMovement playerMovement;
     public PlayerStats player;
     public bool textVisible = false;
     public double nextTextVisibleToggle;
@@ -36,12 +37,14 @@ public class PauseButtonScript : MonoBehaviour
     private void TaskOnClick()
     {
         player.togglePause();
+        playerMovement.pause();
 
         if (player.getPaused()) // pause
         {
             Debug.Log("Pause");
             nextTextVisibleToggle = Time.time;
             StartPauseMusic();
+            
         } else // unpause
         {
             Debug.Log("Unpause");
