@@ -1871,6 +1871,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f5781cad5f80c47a8e00d040cd35ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MCRight: {fileID: 21300000, guid: 1d68e541ea1d3ad48a91bc0c8fc6c2d9, type: 3}
+  MCLeft: {fileID: 21300000, guid: 2a0366121b7b88b42b5cddf50fa78739, type: 3}
+  MCLeftWalk: {fileID: 21300000, guid: fe004f40d29c3ce459e4989fd78c37a7, type: 3}
+  MCRightWalk: {fileID: 0}
+  MCFront: {fileID: 21300000, guid: b7d84354c0634d9498a4c5315426ae77, type: 3}
+  MCBack: {fileID: 21300000, guid: ed8f2b7ed39ded141824bb5c75f3c49f, type: 3}
+  MCSit: {fileID: 21300000, guid: 3c1185bd459c63a4da67ba5711300af2, type: 3}
 --- !u!1 &1744545965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +2000,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f5781cad5f80c47a8e00d040cd35ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MCRight: {fileID: 0}
+  MCLeft: {fileID: 0}
+  MCLeftWalk: {fileID: 0}
+  MCRightWalk: {fileID: 0}
+  MCFront: {fileID: 0}
+  MCBack: {fileID: 0}
+  MCSit: {fileID: 0}
 --- !u!1 &1843064250
 GameObject:
   m_ObjectHideFlags: 0
