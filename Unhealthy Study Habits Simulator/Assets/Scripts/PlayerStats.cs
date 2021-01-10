@@ -60,6 +60,7 @@ public class PlayerStats : MonoBehaviour
     public void incPrep(int inc)
     {
         preparedness += inc;
+        Debug.Log("prep: " + preparedness);
     } // end incPrep
 
     public void incEnergy(int inc)
@@ -84,6 +85,8 @@ public class PlayerStats : MonoBehaviour
 
     public void GameEnd()
     {
+        // save preparedness score and go to end screen
+        GameScoreScript.GameScore = preparedness;
         SceneManager.LoadScene("EndScene");
     }
     

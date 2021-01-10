@@ -18,6 +18,9 @@ public class Clock : MonoBehaviour
     public Text textBox;
     public PlayerStats player;
 
+    int totalTimeMin;
+    int usedTimeMin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class Clock : MonoBehaviour
         timeHour = startHour;
         pm = true;
         gameEnd = false;
+        totalTimeMin = ((12 - startHour) + examHour);
     }
 
     // Update is called once per frame
@@ -41,6 +45,8 @@ public class Clock : MonoBehaviour
 
     void incrementClock()
     {
+        double timeSinceStart;
+
 
         if (timeMin + 1 == 60)
         {
@@ -55,10 +61,14 @@ public class Clock : MonoBehaviour
             timeMin++;
         }
 
+        // save time remaining for end screen
+        usedTimeMin++;
+        GameScoreScript.TimeForSleep = totalTimeMin - usedTimeMin;
+
         if (timeHour == examHour && !pm) // exam time and in morning
         {
             GameEnd();
-        }
+        } 
 
         textBox.text = formatTime(timeHour, timeMin, pm);
     }

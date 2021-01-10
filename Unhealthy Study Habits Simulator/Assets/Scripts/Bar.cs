@@ -8,8 +8,7 @@ public class Bar : MonoBehaviour
 {
     public PlayerStats player;
     public Clock timer;
-    public GameObject BG;
-    public GameObject fill;
+    public Image fill;
     public Text status;
     public int decreaseInterval = 10;
     public int PlayerStatChoice;
@@ -18,19 +17,19 @@ public class Bar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(BG.transform.position);
-        BG.transform.localScale = new Vector3(1f, 1f, 1f);
-        BG.transform.localPosition = new Vector3(0f, 0f, 0f);
         displayFill();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer.timeMin % decreaseInterval == 0 && timer.timeMin != prevMin)
-            decrementMeter();
-        prevMin = timer.timeMin;
         updateStatus();
+        if (timer.timeMin % decreaseInterval == 0 && timer.timeMin != prevMin)
+        {
+            decrementMeter();
+            displayFill();
+        }
+        prevMin = timer.timeMin;
     }
 
     private void decrementMeter()
@@ -67,28 +66,31 @@ public class Bar : MonoBehaviour
                     }
                     break;
             }
-            displayFill();
         }
     }
 
     private void displayFill()
     {
-        int scale = -1;
+        int curStat = -1;
+        int maxStat = -1;
 
         switch (PlayerStatChoice)
         {
             case 1:
-                scale = player.getEnergy();
+                curStat = player.getEnergy();
+                maxStat = PlayerStats.maxEnergy;
                 break;
             case 2:
-                scale = player.getHunger();
+                curStat = player.getHunger();
+                maxStat = PlayerStats.maxHunger;
                 break;
             case 3:
-                scale = player.getBathroom();
+                curStat = player.getBathroom();
+                maxStat = PlayerStats.maxBathroom;
                 break;
         }
 
-        fill.transform.localScale = new Vector3(1f, scale, 1f);
+        fill.fillAmount = (float) curStat / (float) maxStat;
     }
 
     private void updateStatus()
