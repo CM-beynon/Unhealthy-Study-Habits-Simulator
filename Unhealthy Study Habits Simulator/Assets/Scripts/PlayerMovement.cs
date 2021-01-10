@@ -16,7 +16,15 @@ public class PlayerMovement : MonoBehaviour
     private bool left;
     private bool right;
     private int count;
+    private string actionGoal;
+    private bool opening;
+    private bool halfOpen;
+    private bool open;
 
+    public SpriteRenderer door;
+    public Sprite doorClosed;
+    public Sprite doorHalf;
+    public Sprite doorOpen;
 
     public Sprite MCRight;
     public Sprite MCLeft;
@@ -39,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
         left = false;
         right = false;
         count = 0;
+        opening = false;
+        halfOpen = false;
+        opening = false;
     } // end Start
 
     // Update is called once per frame
@@ -79,10 +90,37 @@ public class PlayerMovement : MonoBehaviour
 
             if (start.position == endPos)
             {
+                if(actionGoal.Equals("Door"))
+                {
+                    opening = true;
+                }
                 action = false;
                 spriteRend.sprite = MCBack;
                 count = 0;
+                toChair();
             }
+        }
+
+        if(opening)
+        {
+            if (halfOpen && count%40 == 0 && !open)
+            {
+                door.sprite = doorOpen;
+                open = true;
+            }
+            else if (count%40 == 0 && !open)
+            {
+                door.sprite = doorHalf;
+                halfOpen = true;
+            }
+            else if (open && count%40 == 0)
+            {
+                spriteRend.enabled = false;
+                Debug.Log("WHAT");
+                opening = false;
+                halfOpen = false;
+            }
+            count++;
         }
     } // end Update
 
@@ -105,5 +143,18 @@ public class PlayerMovement : MonoBehaviour
         action = true;
         walk = true;
         right = true;
+        actionGoal = goal;
     } // end setAction
+
+    private void toChair()
+    {
+    } // end toChair
+
+    public void pause()
+    {
+        if (action)
+            action = false;
+        else
+            action = true;
+    } // end pause
 }
