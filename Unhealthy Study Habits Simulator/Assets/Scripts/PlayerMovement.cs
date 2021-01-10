@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void moveToGoal()
     {
-        if (action)
+        if (action && !paused)
         {
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
             
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (opening)
+        if (opening && !paused)
         {
             if (halfOpen && count % 30 == 0 && !open)
             {
@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void toChair()
     {
-        if (goalReached)
+        if (goalReached && !paused)
         {
             if (actionGoal == "Door" && count%30 == 0)
             {
@@ -213,26 +213,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void pause()
     {
-        if (action)
-        {
-            action = false;
-            paused = true;
-        }
-        else if (paused)
-        {
-            action = true;
+        if (paused)
             paused = false;
-        }
-        if (goalReached)
-        {
-            goalReached = false;
+        else
             paused = true;
-        }
-        else if (paused)
-        {
-            goalReached = true;
-            paused = false;
-        }
     } // end pause
 
     public void moveBack()
