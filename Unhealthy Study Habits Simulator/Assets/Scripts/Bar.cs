@@ -65,6 +65,16 @@ public class Bar : MonoBehaviour
                         player.GameEnd();
                     }
                     break;
+                case 4:
+                    if (player.getHygiene() >= 1)
+                    {
+                        player.incHygiene(-1);
+                    }
+                    else
+                    {
+                        player.GameEnd();
+                    }
+                    break;
             }
         }
     }
@@ -87,6 +97,10 @@ public class Bar : MonoBehaviour
             case 3:
                 curStat = player.getBathroom();
                 maxStat = PlayerStats.maxBathroom;
+                break;
+            case 4:
+                curStat = player.getHygiene();
+                maxStat = PlayerStats.maxHygiene;
                 break;
         }
 
@@ -111,6 +125,10 @@ public class Bar : MonoBehaviour
             case 3:
                 curStat = player.getBathroom();
                 maxStat = PlayerStats.maxBathroom;
+                break;
+            case 4:
+                curStat = player.getHygiene();
+                maxStat = PlayerStats.maxHygiene;
                 break;
         }
 

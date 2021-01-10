@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource coffeeEffect;
     public AudioSource toiletEffect;
     public AudioSource foodEffect;
+    public AudioSource showerEffect;
     public AAction anyButton;
 
     private StudyScoreScript studyBar;
@@ -64,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         goalReached = false;
         closed = true;
         paused = false;
-        string[] temp = { "coffee", "bathroom", "food" };
+        string[] temp = { "coffee", "bathroom", "food", "hygiene" };
         targets = temp;
         studyBar = GetComponent<StudyScoreScript>();
     } // end Start
@@ -100,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (start.position == endPos)
             {
-                if (actionGoal.Equals("bathroom") || actionGoal.Equals("food"))
+                if (actionGoal.Equals("bathroom") || actionGoal.Equals("food") || actionGoal.Equals("hygiene"))
                 {
                     opening = true;
                     closed = false;
@@ -142,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void setAction(string goal)
     {
-        if (goal.Equals("bathroom") || goal.Equals("food"))
+        if (goal.Equals("bathroom") || goal.Equals("food") || goal.Equals("hygiene"))
         {
             endX = 433;
             endY = 271;
@@ -168,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (goalReached && !paused)
         {
-            if ((actionGoal.Equals("bathroom") || actionGoal.Equals("food")) && count%30 == 0)
+            if ((actionGoal.Equals("bathroom") || actionGoal.Equals("food") || actionGoal.Equals("hygiene")) && count%30 == 0)
             {
                 if(!spriteRend.enabled)
                 {
@@ -255,6 +256,11 @@ public class PlayerMovement : MonoBehaviour
         {
             foodEffect.Play();
             yield return new WaitForSeconds(foodEffect.clip.length);
+        }
+        else if (target.Equals(targets[3]))
+        {
+            showerEffect.Play();
+            yield return new WaitForSeconds(showerEffect.clip.length);
         }
 
         goalReached = true;

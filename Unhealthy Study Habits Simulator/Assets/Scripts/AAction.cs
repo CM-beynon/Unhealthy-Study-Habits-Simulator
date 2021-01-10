@@ -18,7 +18,7 @@ public abstract class AAction : MonoBehaviour
         actionName = "unnamed";
         player = GameObject.Find("Player").GetComponent(typeof(PlayerStats)) as PlayerStats;
 
-        string[] temp = { "hunger", "energy", "bathroom","preparedness" };
+        string[] temp = { "hunger", "energy", "bathroom", "hygiene", "preparedness" };
         stats = temp;
         AAction[] tempActions = { GameObject.Find("PoopButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("CoffeeButton").GetComponent(typeof(AAction)) as AAction, (AAction)GameObject.Find("EatButton").GetComponent(typeof(AAction)) as AAction };
         actionButtons = tempActions;
@@ -51,6 +51,7 @@ public abstract class AAction : MonoBehaviour
         if (stat.Equals(stats[0])) player.incHunger(amount);
         else if (stat.Equals(stats[1])) player.incEnergy(amount);
         else if (stat.Equals(stats[2])) player.incBathroom(amount);
+        else if (stat.Equals(stats[3])) player.incHygiene(amount);
     }
 
     //start and end the action, deactivating and reactivating the other action buttons

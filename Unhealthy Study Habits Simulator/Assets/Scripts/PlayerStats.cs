@@ -10,9 +10,11 @@ public class PlayerStats : MonoBehaviour
     private int energy;
     private int hunger;
     private int bathroom;
+    private int hygiene;
     public static int maxEnergy = 100;
     public static int maxHunger = 100;
     public static int maxBathroom = 100;
+    public static int maxHygiene = 100;
 
     // stop updating if player is paused
     private bool paused;
@@ -24,6 +26,7 @@ public class PlayerStats : MonoBehaviour
         energy = maxEnergy;
         hunger = maxHunger;
         bathroom = maxBathroom;
+        hygiene = maxHygiene;
     } // end Start
 
     // Update is called once per frame
@@ -57,6 +60,11 @@ public class PlayerStats : MonoBehaviour
         return paused;
     } // end getPrep
 
+    public int getHygiene()
+    {
+        return hygiene;
+    }
+
     public void incPrep(int inc)
     {
         preparedness += inc;
@@ -79,6 +87,12 @@ public class PlayerStats : MonoBehaviour
         bathroom += inc;
         if (bathroom >= 100) bathroom = 100;
     } // end incBathroom
+
+    public void incHygiene(int inc)
+    {
+        hygiene += inc;
+        if (hygiene >= 100) hygiene = 100;
+    } // end incHygiene
 
     public void togglePause()
     {
