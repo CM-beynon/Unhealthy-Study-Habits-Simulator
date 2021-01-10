@@ -14,7 +14,9 @@ public class StudyScoreScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (!player.getPaused())
-            StudyBarScript.SetStudyBarValue(StudyBarScript.GetStudyBarValue() + 0.01f);
+        if (!player.getPaused()){
+            player.incPrep(1);
+            StudyBarScript.SetStudyBarValue(player.getPrep()/10000f);
+        }
     }
 }

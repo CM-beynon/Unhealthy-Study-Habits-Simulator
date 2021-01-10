@@ -60,6 +60,7 @@ public class PlayerStats : MonoBehaviour
     public void incPrep(int inc)
     {
         preparedness += inc;
+        Debug.Log("prep: " + preparedness);
     } // end incPrep
 
     public void incEnergy(int inc)

@@ -2926,7 +2926,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b7d84354c0634d9498a4c5315426ae77,
+      objectReference: {fileID: 21300000, guid: 3c1185bd459c63a4da67ba5711300af2,
         type: 3}
     - target: {fileID: 4193501810813392787, guid: c12e0b54c33bc154097699ec6e8b4fa1,
         type: 3}
@@ -2961,12 +2961,12 @@ PrefabInstance:
     - target: {fileID: 4193501810813392812, guid: c12e0b54c33bc154097699ec6e8b4fa1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -297
+      value: -326
       objectReference: {fileID: 0}
     - target: {fileID: 4193501810813392812, guid: c12e0b54c33bc154097699ec6e8b4fa1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 4193501810813392812, guid: c12e0b54c33bc154097699ec6e8b4fa1,
         type: 3}
@@ -3034,6 +3034,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f5781cad5f80c47a8e00d040cd35ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 673432572}
+  doorClosed: {fileID: 21300000, guid: ebae07c71bede0a4795e1848ab822ecb, type: 3}
+  doorHalf: {fileID: 21300000, guid: d5677098cfa0a7b4aa4da27c75421486, type: 3}
+  doorOpen: {fileID: 21300000, guid: 96bf82557cd34f14eb4878f41bc08cb2, type: 3}
   MCRight: {fileID: 21300000, guid: 1d68e541ea1d3ad48a91bc0c8fc6c2d9, type: 3}
   MCLeft: {fileID: 21300000, guid: 2a0366121b7b88b42b5cddf50fa78739, type: 3}
   MCLeftWalk: {fileID: 21300000, guid: fe004f40d29c3ce459e4989fd78c37a7, type: 3}
@@ -3176,6 +3180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f5781cad5f80c47a8e00d040cd35ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 0}
+  doorClosed: {fileID: 0}
+  doorHalf: {fileID: 0}
+  doorOpen: {fileID: 0}
   MCRight: {fileID: 0}
   MCLeft: {fileID: 0}
   MCLeftWalk: {fileID: 0}
