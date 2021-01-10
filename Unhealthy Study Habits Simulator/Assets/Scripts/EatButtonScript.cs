@@ -13,17 +13,21 @@ public class EatButtonScript : AAction
         base.Start();
         Button btn = GameObject.Find("EatButton").GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
+        base.setButton(btn);
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
 
     }
 
     private void TaskOnClick()
     {
+        base.startAction();
         Debug.Log("Eated");
         base.incStat("hunger", 2);
+
     }
 }
