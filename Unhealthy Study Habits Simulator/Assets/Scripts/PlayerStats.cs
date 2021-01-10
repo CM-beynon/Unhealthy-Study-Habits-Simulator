@@ -59,8 +59,6 @@ public class PlayerStats : MonoBehaviour
 
     public void incHunger(int inc)
     {
-         // Debug.Log("Hunger increased");
-        //Debug.Log(inc);
         hunger += inc;
     } // end incHunger
 
