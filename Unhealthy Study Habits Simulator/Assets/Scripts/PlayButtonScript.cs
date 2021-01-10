@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayButtonScript : MonoBehaviour {
 
-    
+    public AudioSource playingMusic;
+    public AudioSource soundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +23,20 @@ public class PlayButtonScript : MonoBehaviour {
     {
         
     }
+
     void TaskOnClick(){
 		Debug.Log ("You have clicked the button!");
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame()
+    {
+        Debug.Log("The game is starting!");
+        playingMusic.Pause();
+        soundEffect.Play();
+        yield return new WaitForSeconds(soundEffect.clip.length);
         SceneManager.LoadScene("GameScene");
-	}
+    }
 }
 
 
