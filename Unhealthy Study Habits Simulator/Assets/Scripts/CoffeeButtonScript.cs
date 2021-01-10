@@ -41,7 +41,7 @@ public class CoffeeButtonScript : AAction
         base.startAction();
         Debug.Log("Caffeinated");
         base.incStat("energy", 100);
-        base.incStat("bathroom", -5);
+        base.incStat("bathroom", -10);
         pMove.setAction("coffee");
     }
 
