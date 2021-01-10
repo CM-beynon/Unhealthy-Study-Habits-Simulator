@@ -6,14 +6,19 @@ public class PlayerStats : MonoBehaviour
 {
     // meters/status bars
     private int preparedness;
-    private int tiredness;
+    private int energy;
     private int hunger;
     private int bathroom;
+    public static int maxEnergy = 100;
+    public static int maxHunger = 100;
+    public static int maxBathroom = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        energy = maxEnergy;
+        hunger = maxHunger;
+        bathroom = maxBathroom;
     } // end Start
 
     // Update is called once per frame
@@ -27,9 +32,9 @@ public class PlayerStats : MonoBehaviour
         return preparedness;
     } // end getPrep
 
-    public int getTired()
+    public int getEnergy()
     {
-        return tiredness;
+        return energy;
     } // end getTired
 
     public int getHunger()
@@ -47,13 +52,15 @@ public class PlayerStats : MonoBehaviour
         preparedness += inc;
     } // end incPrep
 
-    public void incTired(int inc)
+    public void incEnergy(int inc)
     {
-        tiredness += inc;
-    } // end incTired
+        energy += inc;
+    } // end incEnergy
 
     public void incHunger(int inc)
     {
+         // Debug.Log("Hunger increased");
+        //Debug.Log(inc);
         hunger += inc;
     } // end incHunger
 
