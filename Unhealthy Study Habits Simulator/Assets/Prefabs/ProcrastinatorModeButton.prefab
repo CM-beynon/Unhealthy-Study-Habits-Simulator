@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3984118619676840129
+--- !u!1 &7088188720592100643
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3984118619676840190}
-  - component: {fileID: 3984118619676840188}
-  - component: {fileID: 3984118619676840191}
+  - component: {fileID: 7088188720592100642}
+  - component: {fileID: 7088188720592100652}
+  - component: {fileID: 7088188720592100653}
   m_Layer: 5
   m_Name: ProcrastinatorText
   m_TagString: Untagged
@@ -18,18 +18,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3984118619676840190
+--- !u!224 &7088188720592100642
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984118619676840129}
+  m_GameObject: {fileID: 7088188720592100643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3984118620178862211}
+  m_Father: {fileID: 7088188721775542649}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -37,28 +37,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3984118619676840188
+--- !u!222 &7088188720592100652
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984118619676840129}
+  m_GameObject: {fileID: 7088188720592100643}
   m_CullTransparentMesh: 0
---- !u!114 &3984118619676840191
+--- !u!114 &7088188720592100653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984118619676840129}
+  m_GameObject: {fileID: 7088188720592100643}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8117647, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Procrastinator Mode
---- !u!1 &3984118620178862210
+--- !u!1 &7088188721775542654
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,10 +86,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3984118620178862211}
-  - component: {fileID: 3984118620178862209}
-  - component: {fileID: 3984118620178862208}
-  - component: {fileID: 3984118620178862270}
+  - component: {fileID: 7088188721775542649}
+  - component: {fileID: 7088188721775542650}
+  - component: {fileID: 7088188721775542651}
+  - component: {fileID: 7088188721775542648}
   m_Layer: 5
   m_Name: ProcrastinatorModeButton
   m_TagString: Untagged
@@ -97,18 +97,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3984118620178862211
+--- !u!224 &7088188721775542649
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984118620178862210}
+  m_GameObject: {fileID: 7088188721775542654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3984118619676840190}
+  - {fileID: 7088188720592100642}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -117,21 +117,21 @@ RectTransform:
   m_AnchoredPosition: {x: 343, y: 30.77002}
   m_SizeDelta: {x: 378.42755, y: 36.01187}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3984118620178862209
+--- !u!222 &7088188721775542650
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984118620178862210}
+  m_GameObject: {fileID: 7088188721775542654}
   m_CullTransparentMesh: 0
---- !u!114 &3984118620178862208
+--- !u!114 &7088188721775542651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984118620178862210}
+  m_GameObject: {fileID: 7088188721775542654}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
-    m_HighlightedColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.8117648, g: 0.8117648, b: 0.8117648, a: 1}
+    m_PressedColor: {r: 0.8117648, g: 0.8117648, b: 0.8117648, a: 1}
     m_SelectedColor: {r: 0.8117648, g: 0.8117648, b: 0.8117648, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.8117648, g: 0.8117648, b: 0.8117648, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -164,17 +164,17 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3984118619676840191}
+  m_TargetGraphic: {fileID: 7088188720592100653}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3984118620178862270
+--- !u!114 &7088188721775542648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984118620178862210}
+  m_GameObject: {fileID: 7088188721775542654}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaa2e0ccc7063de448697c2ab764375d, type: 3}
