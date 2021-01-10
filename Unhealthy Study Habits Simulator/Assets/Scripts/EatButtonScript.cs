@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EatButtonScript : AAction
 {
     string actionTag;
+    public PlayerMovement pMove;
 
     // Start is called before the first frame update
     public override void Start()
@@ -28,6 +29,7 @@ public class EatButtonScript : AAction
         base.startAction();
         Debug.Log("Eated");
         base.incStat("hunger", 2);
+        pMove.setAction("Door");
 
     }
 }
