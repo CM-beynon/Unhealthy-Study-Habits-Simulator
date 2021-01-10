@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             if(start.position == endPos)
             {
                 action = false;
+                spriteRend.sprite = MCBack;
             }
         }
     } // end Update
