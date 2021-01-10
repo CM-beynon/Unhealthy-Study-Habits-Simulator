@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource coffeeEffect;
     public AudioSource toiletEffect;
     public AudioSource foodEffect;
+    public AAction anyButton;
 
     // Start is called before the first frame update
     void Start()
@@ -212,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
                     goalReached = false;
                     spriteRend.sprite = MCSit;
                     count = 0;
+                    anyButton.endAction();
                 }
             }
             count++;

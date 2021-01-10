@@ -569,6 +569,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b0691823cff1ff489ac9fb2f1343188, type: 3}
+--- !u!114 &84879054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1476755334179913773, guid: 0b0691823cff1ff489ac9fb2f1343188,
+    type: 3}
+  m_PrefabInstance: {fileID: 84879053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92460b23269db3c48b8adf188454b24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &129544077 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4202838126246908656, guid: d31ea170046b0fe469e9c61a236387b0,
@@ -3344,6 +3356,7 @@ MonoBehaviour:
   coffeeEffect: {fileID: 1043239822}
   toiletEffect: {fileID: 254514237}
   foodEffect: {fileID: 1852079810}
+  anyButton: {fileID: 84879054}
 --- !u!114 &1667752383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3505,6 +3518,7 @@ MonoBehaviour:
   coffeeEffect: {fileID: 0}
   toiletEffect: {fileID: 0}
   foodEffect: {fileID: 0}
+  anyButton: {fileID: 0}
 --- !u!114 &1771018623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4876554703180895467, guid: 0b0691823cff1ff489ac9fb2f1343188,
