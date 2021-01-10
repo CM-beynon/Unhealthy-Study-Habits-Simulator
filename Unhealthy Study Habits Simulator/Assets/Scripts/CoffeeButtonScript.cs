@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CoffeeButtonScript : AAction
 {
     string actionTag;
+    public Text tooltip;
 
     // Start is called before the first frame update
     public override void Start()
@@ -14,6 +16,10 @@ public class CoffeeButtonScript : AAction
         Button btn = GameObject.Find("CoffeeButton").GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         base.setButton(btn);
+        Debug.Log("Started Coffee Button Script");
+        Button cbtn = GameObject.Find("CoffeeButton").GetComponent<Button>();
+        cbtn.onClick.AddListener(TaskOnClick);
+        tooltip.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,6 +27,10 @@ public class CoffeeButtonScript : AAction
     {
         base.Update();
 
+        if (EventSystem.current.IsPointerOverGameObject())
+            tooltip.gameObject.SetActive(true);
+        else
+            tooltip.gameObject.SetActive(false);
     }
 
     private void TaskOnClick()
