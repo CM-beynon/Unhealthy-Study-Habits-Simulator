@@ -91,6 +91,6 @@ public class Clock : MonoBehaviour
     void GameEnd()
     {
         gameEnd = true;
-        // game end code here???
+        player.GameEnd();
     }
 }
