@@ -8,6 +8,7 @@ public class Instruction_Left : MonoBehaviour
     public GameObject page1;
     public GameObject page2;
     public GameObject page3;
+    public GameObject page4;
     public GameObject rightArrow;
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class Instruction_Left : MonoBehaviour
         page1.SetActive(true);
         page2.SetActive(true);
         page3.SetActive(false);
+        page4.SetActive(false);
         //this.gameObject.SetActive(false);
         rightArrow.SetActive(true);
     }
