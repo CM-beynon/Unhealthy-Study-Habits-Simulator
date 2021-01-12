@@ -18,7 +18,7 @@ public class StudyScoreScript : MonoBehaviour {
     {
         if (!player.getPaused() && !moving){
             player.incPrep(1);
-            StudyBarScript.SetStudyBarValue(player.getPrep()/20000f);
+            StudyBarScript.SetStudyBarValue(player.getPrep()/18000f);
         }
     }
 

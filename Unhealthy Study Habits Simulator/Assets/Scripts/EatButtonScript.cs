@@ -38,7 +38,7 @@ public class EatButtonScript : AAction
         base.startAction();
         Debug.Log("Eated");
         base.incStat("hunger", 100);
-        base.incStat("energy", 20);
+        base.incStat("energy", 40);
         pMove.setAction("food");
 
     }
