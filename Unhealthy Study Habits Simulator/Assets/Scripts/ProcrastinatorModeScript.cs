@@ -11,9 +11,10 @@ public class ProcrastinatorModeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        procrastinatorMode = false;
         Button btn = GameObject.Find("ProcrastinatorModeButton").GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
+        procrastinatorMode = GameScoreScript.ProcrastinatorMode;
+        changeProcrastimatorTextColor();
     }
 
     void TaskOnClick()
@@ -21,7 +22,11 @@ public class ProcrastinatorModeScript : MonoBehaviour
         procrastinatorMode = !procrastinatorMode;
         GameScoreScript.ProcrastinatorMode = procrastinatorMode;
         Debug.Log("You want a challenge? " + procrastinatorMode);
+        changeProcrastimatorTextColor();
+    }
 
+    void changeProcrastimatorTextColor()
+    {
         Text procrastinatorText = GameObject.Find("ProcrastinatorText").GetComponent<Text>();
 
         if (procrastinatorMode)
