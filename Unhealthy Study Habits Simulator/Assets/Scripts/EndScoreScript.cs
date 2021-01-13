@@ -12,7 +12,7 @@ public class EndScoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        multiplier = 18000f;
+        multiplier = 8250f;
         string grade;
         if (GameScoreScript.GameScore/multiplier > 0.9)
         {
